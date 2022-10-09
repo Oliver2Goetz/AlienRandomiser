@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OpenCAGE;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,12 +17,53 @@ namespace AlienRandomiser
         private List<MissionMapping> _missionMaps = new List<MissionMapping>();
 
         private Label[] _missionEndLabels = null;
-        private List<int> _availableMissions = new List<int>();
 
         public Form1()
         {
             InitializeComponent();
             _missionEndLabels = new Label[] { order_1, order_2, order_3, order_4, order_5, order_6, order_7, order_8, order_9, order_10, order_11, order_12, order_13, order_14, order_15, order_16, order_17, order_18 };
+
+            label1.Font = FontManager.GetFont(1, 27.75f);
+            label4.Font = FontManager.GetFont(1, 27.75f);
+            label6.Font = FontManager.GetFont(1, 27.75f);
+            label8.Font = FontManager.GetFont(1, 27.75f);
+            label10.Font = FontManager.GetFont(1, 27.75f);
+            label12.Font = FontManager.GetFont(1, 27.75f);
+            label14.Font = FontManager.GetFont(1, 27.75f);
+            label16.Font = FontManager.GetFont(1, 27.75f);
+            label18.Font = FontManager.GetFont(1, 27.75f);
+            label20.Font = FontManager.GetFont(1, 27.75f);
+            label22.Font = FontManager.GetFont(1, 27.75f);
+            label24.Font = FontManager.GetFont(1, 27.75f);
+            label26.Font = FontManager.GetFont(1, 27.75f);
+            label28.Font = FontManager.GetFont(1, 27.75f);
+            label30.Font = FontManager.GetFont(1, 27.75f);
+            label32.Font = FontManager.GetFont(1, 27.75f);
+            label34.Font = FontManager.GetFont(1, 27.75f);
+            label36.Font = FontManager.GetFont(1, 27.75f);
+            order_1.Font = FontManager.GetFont(1, 27.75f);
+            order_2.Font = FontManager.GetFont(1, 27.75f);
+            order_3.Font = FontManager.GetFont(1, 27.75f);
+            order_4.Font = FontManager.GetFont(1, 27.75f);
+            order_5.Font = FontManager.GetFont(1, 27.75f);
+            order_6.Font = FontManager.GetFont(1, 27.75f);
+            order_7.Font = FontManager.GetFont(1, 27.75f);
+            order_8.Font = FontManager.GetFont(1, 27.75f);
+            order_9.Font = FontManager.GetFont(1, 27.75f);
+            order_10.Font = FontManager.GetFont(1, 27.75f);
+            order_11.Font = FontManager.GetFont(1, 27.75f);
+            order_12.Font = FontManager.GetFont(1, 27.75f);
+            order_13.Font = FontManager.GetFont(1, 27.75f);
+            order_14.Font = FontManager.GetFont(1, 27.75f);
+            order_15.Font = FontManager.GetFont(1, 27.75f);
+            order_16.Font = FontManager.GetFont(1, 27.75f);
+            order_17.Font = FontManager.GetFont(1, 27.75f);
+            order_18.Font = FontManager.GetFont(1, 27.75f);
+
+            label2.Font = FontManager.GetFont(2, 24);
+
+            randomiseOrder.Font = FontManager.GetFont(0, 20.25f);
+            launchGame.Font = FontManager.GetFont(0, 20.25f);
         }
 
         private void randomiseOrder_Click(object sender, EventArgs e)
@@ -51,7 +93,8 @@ namespace AlienRandomiser
 
         private void launchGame_Click(object sender, EventArgs e)
         {
-
+            CopyNewCommands();
+            StartGame();
         }
 
         private void ReSyncUI()
@@ -66,6 +109,16 @@ namespace AlienRandomiser
                    (startMission == 12 && endMission == 7) || (startMission == 17 && endMission == 2) ||
                    (startMission == 17 && endMission == 11) || (startMission == 4 && endMission == 3) ||
                    (startMission == 11 && endMission == 10);
+        }
+
+        private void CopyNewCommands()
+        {
+
+        }
+
+        private void StartGame()
+        {
+
         }
 
         private class MissionMapping

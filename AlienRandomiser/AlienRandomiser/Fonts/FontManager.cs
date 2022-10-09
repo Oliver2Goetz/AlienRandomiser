@@ -27,7 +27,7 @@ namespace OpenCAGE
             Marshal.FreeCoTaskMem(fontPtr);
         }
 
-        static public Font GetFont(int index, int size)
+        static public Font GetFont(int index, float size)
         {
             return new Font(fonts.Families[index], size);
         }
