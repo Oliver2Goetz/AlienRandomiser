@@ -91,21 +91,6 @@
     <EmbeddedResource Include="ripley.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="vhs\VHSNOISE_01_DXT1.png" />
-    <EmbeddedResource Include="vhs\VHSNOISE_02_DXT1.png" />
-    <EmbeddedResource Include="vhs\VHSNOISE_03_DXT1.png" />
-    <EmbeddedResource Include="vhs\VHSNOISE_04_DXT1.png" />
-    <EmbeddedResource Include="vhs\VHSNOISE_05_DXT1.png" />
-    <EmbeddedResource Include="vhs\VHSNOISE_06_DXT1.png" />
-    <EmbeddedResource Include="vhs\VHSNOISE_07_DXT1.png" />
-    <EmbeddedResource Include="vhs\VHSNOISE_08_DXT1.png" />
-    <EmbeddedResource Include="vhs\VHS_FS_01_DXT1.png" />
-    <EmbeddedResource Include="vhs\VHS_FS_02_DXT1.png" />
-    <EmbeddedResource Include="vhs\VHS_FS_03_DXT1.png" />
-    <EmbeddedResource Include="vhs\VHS_FS_04_DXT1.png" />
-    <EmbeddedResource Include="vhs\VHS_FS_08_DXT1.png" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="arrow.png" />
   </ItemGroup>
   <ItemGroup>

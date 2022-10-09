@@ -136,43 +136,4 @@
   <data name="ripley" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ripley.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="VHSNOISE_01_DXT1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\vhs\vhsnoise_01_dxt1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="VHSNOISE_02_DXT1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\vhs\vhsnoise_02_dxt1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="VHSNOISE_03_DXT1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\vhs\vhsnoise_03_dxt1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="VHSNOISE_04_DXT1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\vhs\vhsnoise_04_dxt1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="VHSNOISE_05_DXT1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\vhs\vhsnoise_05_dxt1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="VHSNOISE_06_DXT1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\vhs\vhsnoise_06_dxt1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="VHSNOISE_07_DXT1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\vhs\vhsnoise_07_dxt1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="VHSNOISE_08_DXT1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\vhs\vhsnoise_08_dxt1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="VHS_FS_01_DXT1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\vhs\vhs_fs_01_dxt1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="VHS_FS_02_DXT1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\vhs\vhs_fs_02_dxt1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="VHS_FS_03_DXT1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\vhs\vhs_fs_03_dxt1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="VHS_FS_04_DXT1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\vhs\vhs_fs_04_dxt1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="VHS_FS_08_DXT1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\vhs\vhs_fs_08_dxt1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
 </root>

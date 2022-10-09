@@ -14,7 +14,9 @@ namespace AlienRandomiser
     {
         private Random _random = new Random();
         private List<MissionMapping> _missionMaps = new List<MissionMapping>();
+
         private Label[] _missionEndLabels = null;
+        private List<int> _availableMissions = new List<int>();
 
         public Form1()
         {
@@ -26,18 +28,23 @@ namespace AlienRandomiser
         {
             _missionMaps.Clear();
             List<int> usedMissions = new List<int>();
-            for (int i = 1; i < 19; i++)
+            int nextMission = 1;
+            for (int i = 1; i < 18; i++)
             {
-                int randomNextMission = i;
-                while (randomNextMission == i || usedMissions.Contains(randomNextMission))
-                    randomNextMission = _random.Next(19) + 1;
-                usedMissions.Add(randomNextMission);
+                int startMission = nextMission;
+                while (nextMission == 1 || nextMission == startMission || usedMissions.Contains(nextMission) || ValidateInvalidMissions(startMission, nextMission))
+                    nextMission = _random.Next(18) + 1;
+                usedMissions.Add(nextMission);
 
                 MissionMapping missionMapping = new MissionMapping();
-                missionMapping.mission_start = i;
-                missionMapping.mission_end = randomNextMission;
+                missionMapping.mission_start = startMission;
+                missionMapping.mission_end = nextMission;
                 _missionMaps.Add(missionMapping);
             }
+            MissionMapping finalMapping = new MissionMapping();
+            finalMapping.mission_start = nextMission;
+            finalMapping.mission_end = 19;
+            _missionMaps.Add(finalMapping);
 
             ReSyncUI();
         }
@@ -53,12 +60,20 @@ namespace AlienRandomiser
                 _missionEndLabels[mapping.mission_start - 1].Text = mapping.mission_end.ToString();
         }
 
+        private bool ValidateInvalidMissions(int startMission, int endMission)
+        { 
+            return (startMission == 8 && endMission == 10) || (startMission == 2 && endMission == 11) ||
+                   (startMission == 12 && endMission == 7) || (startMission == 17 && endMission == 2) ||
+                   (startMission == 17 && endMission == 11) || (startMission == 4 && endMission == 3) ||
+                   (startMission == 11 && endMission == 10);
+        }
+
         private class MissionMapping
         {
             public int mission_start = 1;
             public int mission_end = 1;
 
-            public string GetAsString()
+            public string ToString()
             {
                 return "Mission " + mission_start + " to " + mission_end;
             }
