@@ -81,6 +81,7 @@ namespace AlienRandomiser
 
             randomiseOrder.Font = FontManager.GetFont(0, 20.25f);
             launchGame.Font = FontManager.GetFont(0, 20.25f);
+            hideOrder.Font = FontManager.GetFont(0, 15.75f);
 
             GenerateNewDefaultOrder();
         }
@@ -103,6 +104,11 @@ namespace AlienRandomiser
                 Console.WriteLine(ex.ToString());
                 MessageBox.Show("Failed to set & start game!\nIs Alien: Isolation already open?", "Failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void hideOrder_CheckedChanged(object sender, EventArgs e)
+        {
+            ReSyncUI();
         }
 
         private void GenerateNewDefaultOrder()
@@ -142,7 +148,7 @@ namespace AlienRandomiser
         private void ReSyncUI()
         {
             foreach (MissionMapping mapping in _missionMaps)
-                _missionEndLabels[mapping.mission_start - 1].Text = mapping.mission_end.ToString();
+                _missionEndLabels[mapping.mission_start - 1].Text = (hideOrder.Checked) ? "??" : mapping.mission_end.ToString();
         }
 
         private bool ValidateInvalidMissions(int startMission, int endMission)

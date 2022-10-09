@@ -88,6 +88,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox19 = new System.Windows.Forms.PictureBox();
+            this.hideOrder = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
@@ -739,12 +740,26 @@
             this.pictureBox19.TabIndex = 54;
             this.pictureBox19.TabStop = false;
             // 
+            // hideOrder
+            // 
+            this.hideOrder.AutoSize = true;
+            this.hideOrder.Font = new System.Drawing.Font("Isolation", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hideOrder.ForeColor = System.Drawing.SystemColors.Control;
+            this.hideOrder.Location = new System.Drawing.Point(457, 581);
+            this.hideOrder.Name = "hideOrder";
+            this.hideOrder.Size = new System.Drawing.Size(137, 29);
+            this.hideOrder.TabIndex = 111;
+            this.hideOrder.Text = "Hide Order";
+            this.hideOrder.UseVisualStyleBackColor = true;
+            this.hideOrder.CheckedChanged += new System.EventHandler(this.hideOrder_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1034, 630);
+            this.Controls.Add(this.hideOrder);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox20);
             this.Controls.Add(this.launchGame);
@@ -808,7 +823,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Alien: Isolation Mission Randomer";
+            this.Text = "Alien: Isolation Mission Randomiser";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
@@ -895,6 +910,7 @@
         private System.Windows.Forms.Button launchGame;
         private System.Windows.Forms.PictureBox pictureBox20;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox hideOrder;
     }
 }
 
