@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,9 +20,12 @@ namespace AlienRandomiser
 
         private Label[] _missionEndLabels = null;
 
+        private string _pathToAI = @"G:\SteamLibrary\steamapps\common\Alien Isolation";
+
         public Form1()
         {
             InitializeComponent();
+
             _missionEndLabels = new Label[] { order_1, order_2, order_3, order_4, order_5, order_6, order_7, order_8, order_9, order_10, order_11, order_12, order_13, order_14, order_15, order_16, order_17, order_18 };
 
             label1.Font = FontManager.GetFont(1, 27.75f);
@@ -64,9 +69,42 @@ namespace AlienRandomiser
 
             randomiseOrder.Font = FontManager.GetFont(0, 20.25f);
             launchGame.Font = FontManager.GetFont(0, 20.25f);
+
+            GenerateNewDefaultOrder();
         }
 
         private void randomiseOrder_Click(object sender, EventArgs e)
+        {
+            GenerateNewRandomOrder();
+            ReSyncUI();
+        }
+
+        private void launchGame_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CopyNewCommands();
+                StartGame();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                MessageBox.Show("Failed to set & start game!\nIs Alien: Isolation already open?", "Failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void GenerateNewDefaultOrder()
+        {
+            for (int i = 1; i < 19; i++)
+            {
+                MissionMapping missionMapping = new MissionMapping();
+                missionMapping.mission_start = i;
+                missionMapping.mission_end = i + 1;
+                _missionMaps.Add(missionMapping);
+            }
+        }
+
+        private void GenerateNewRandomOrder()
         {
             _missionMaps.Clear();
             List<int> usedMissions = new List<int>();
@@ -87,14 +125,6 @@ namespace AlienRandomiser
             finalMapping.mission_start = nextMission;
             finalMapping.mission_end = 19;
             _missionMaps.Add(finalMapping);
-
-            ReSyncUI();
-        }
-
-        private void launchGame_Click(object sender, EventArgs e)
-        {
-            CopyNewCommands();
-            StartGame();
         }
 
         private void ReSyncUI()
@@ -113,12 +143,55 @@ namespace AlienRandomiser
 
         private void CopyNewCommands()
         {
+            if (_missionMaps.Count == 0) return;
 
+            FileInfo[] commandsPAKs = new DirectoryInfo("COMMANDS/").GetFiles("COMMANDS.PAK", SearchOption.AllDirectories);
+            foreach (MissionMapping mapping in _missionMaps)
+            {
+                foreach (FileInfo commandsPAK in commandsPAKs)
+                {
+                    string[] filePathSplit = commandsPAK.FullName.Substring(Application.StartupPath.Length + ("\\COMMANDS\\").Length).Split('\\');
+                    if (filePathSplit[1] != mapping.ToString()) continue;
+
+                    if (filePathSplit[2] != "COMMANDS.PAK")
+                    {
+                        string pairedLevelCombo = filePathSplit[2].Split('&')[1].Substring(1);
+                        bool didFindMatchingPair = false;
+                        foreach (MissionMapping pairedMapping in _missionMaps)
+                        {
+                            if (pairedMapping.ToStringShortened() == pairedLevelCombo)
+                            {
+                                didFindMatchingPair = true;
+                                break;
+                            }
+                        }
+                        if (!didFindMatchingPair) continue;
+                    }
+
+                    CopyCommandsToLevel(filePathSplit[0], commandsPAK.FullName);
+                }
+            }
+            commandsPAKs = new DirectoryInfo("COMMANDS/").GetFiles("*.PAK", SearchOption.TopDirectoryOnly);
+            foreach (FileInfo commandsPAK in commandsPAKs)
+            {
+                string level = Path.GetFileNameWithoutExtension(commandsPAK.Name);
+                CopyCommandsToLevel(level, commandsPAK.FullName);
+            }
+        }
+        private void CopyCommandsToLevel(string levelName, string pathToPak)
+        {
+            string pathToLevelPak = _pathToAI + @"\DATA\ENV\PRODUCTION\" + levelName + @"\WORLD\COMMANDS.PAK";
+            File.Delete(pathToLevelPak);
+            File.Copy(pathToPak, pathToLevelPak);
+            Console.WriteLine("COPYING\n" + pathToPak + "\nTO\n" + pathToLevelPak + "\n");
         }
 
         private void StartGame()
         {
-
+            ProcessStartInfo alienProcess = new ProcessStartInfo();
+            alienProcess.WorkingDirectory = Application.StartupPath;
+            alienProcess.FileName = Application.StartupPath + "/AI.exe";
+            Process.Start(alienProcess);
         }
 
         private class MissionMapping
@@ -129,6 +202,10 @@ namespace AlienRandomiser
             public string ToString()
             {
                 return "Mission " + mission_start + " to " + mission_end;
+            }
+            public string ToStringShortened()
+            {
+                return "M" + mission_start + " to M" + mission_end;
             }
         }
     }
