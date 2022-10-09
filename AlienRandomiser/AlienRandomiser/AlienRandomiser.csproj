@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\Build\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -27,10 +27,13 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\Build\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -46,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fonts\FontManager.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +58,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -62,7 +69,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Fonts\Isolation_Isolation.ttf" />
+    <EmbeddedResource Include="Fonts\JixellationBold_Jixellation.ttf" />
+    <EmbeddedResource Include="Fonts\NostromoBoldCond_Nostromo Cond.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -75,6 +86,31 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ripley.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="vhs\VHSNOISE_01_DXT1.png" />
+    <EmbeddedResource Include="vhs\VHSNOISE_02_DXT1.png" />
+    <EmbeddedResource Include="vhs\VHSNOISE_03_DXT1.png" />
+    <EmbeddedResource Include="vhs\VHSNOISE_04_DXT1.png" />
+    <EmbeddedResource Include="vhs\VHSNOISE_05_DXT1.png" />
+    <EmbeddedResource Include="vhs\VHSNOISE_06_DXT1.png" />
+    <EmbeddedResource Include="vhs\VHSNOISE_07_DXT1.png" />
+    <EmbeddedResource Include="vhs\VHSNOISE_08_DXT1.png" />
+    <EmbeddedResource Include="vhs\VHS_FS_01_DXT1.png" />
+    <EmbeddedResource Include="vhs\VHS_FS_02_DXT1.png" />
+    <EmbeddedResource Include="vhs\VHS_FS_03_DXT1.png" />
+    <EmbeddedResource Include="vhs\VHS_FS_04_DXT1.png" />
+    <EmbeddedResource Include="vhs\VHS_FS_08_DXT1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.ico" />
+    <EmbeddedResource Include="logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

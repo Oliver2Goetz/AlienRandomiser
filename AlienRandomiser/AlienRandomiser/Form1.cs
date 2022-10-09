@@ -16,5 +16,15 @@ namespace AlienRandomiser
         {
             InitializeComponent();
         }
+
+        private void randomiseOrder_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void launchGame_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
