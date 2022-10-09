@@ -182,6 +182,7 @@ namespace AlienRandomiser
                                 if (pairedMapping.ToStringShortened() == pairedLevelCombo)
                                 {
                                     didFindMatchingPair = true;
+                                    pairedMapping.did_find_pak_paired = true;
                                     break;
                                 }
                             }
@@ -206,11 +207,11 @@ namespace AlienRandomiser
                 CopyCommandsToLevel(level, commandsPAK.FullName);
             }
 
-            //foreach (MissionMapping mapping in _missionMaps)
-            //{
-            //    if (!mapping.did_find_pak)
-            //        Console.WriteLine("Failed to find PAK for mission " + mapping.mission_start + " -> " + mapping.mission_end + "!!");
-            //}
+            foreach (MissionMapping mapping in _missionMaps)
+            {
+                if (!mapping.did_find_pak && !mapping.did_find_pak_paired)
+                    Console.WriteLine("Failed to find PAK for mission " + mapping.mission_start + " -> " + mapping.mission_end + "!!");
+            }
         }
         private void CopyCommandsToLevel(string levelName, string pathToPak)
         {
@@ -234,6 +235,7 @@ namespace AlienRandomiser
             public int mission_end = 1;
 
             public bool did_find_pak = false;
+            public bool did_find_pak_paired = false;
 
             public string ToString()
             {

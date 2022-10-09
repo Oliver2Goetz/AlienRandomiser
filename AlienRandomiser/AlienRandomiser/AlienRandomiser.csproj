@@ -88,14 +88,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ripley.png" />
+    <Content Include="ripley.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="arrow.png" />
+    <Content Include="arrow.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
-    <EmbeddedResource Include="logo.png" />
+    <Content Include="logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
