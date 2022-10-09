@@ -21,12 +21,24 @@ namespace AlienRandomiser
         private Label[] _missionEndLabels = null;
 
         private string _pathToAI = @"G:\SteamLibrary\steamapps\common\Alien Isolation";
+        private string _pathToCommands = "Alien Randomizer";
 
         public Form1()
         {
             InitializeComponent();
 
             _missionEndLabels = new Label[] { order_1, order_2, order_3, order_4, order_5, order_6, order_7, order_8, order_9, order_10, order_11, order_12, order_13, order_14, order_15, order_16, order_17, order_18 };
+
+#if !DEBUG
+            _pathToAI = Application.StartupPath;
+            if (!Directory.Exists(_pathToCommands) || !Directory.Exists("DATA"))
+            {
+                MessageBox.Show("Please open the mission randomiser in your Alien: Isolation directory.", "Incorrectly launched!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+                Environment.Exit(0);
+                return;
+            }
+#endif
 
             label1.Font = FontManager.GetFont(1, 27.75f);
             label4.Font = FontManager.GetFont(1, 27.75f);
@@ -145,52 +157,74 @@ namespace AlienRandomiser
         {
             if (_missionMaps.Count == 0) return;
 
-            FileInfo[] commandsPAKs = new DirectoryInfo("COMMANDS/").GetFiles("COMMANDS.PAK", SearchOption.AllDirectories);
+            FileInfo[] commandsPAKs = new DirectoryInfo(_pathToCommands + "/").GetFiles("COMMANDS.PAK", SearchOption.AllDirectories);
             foreach (MissionMapping mapping in _missionMaps)
             {
                 foreach (FileInfo commandsPAK in commandsPAKs)
                 {
-                    string[] filePathSplit = commandsPAK.FullName.Substring(Application.StartupPath.Length + ("\\COMMANDS\\").Length).Split('\\');
-                    if (filePathSplit[1] != mapping.ToString()) continue;
+                    string[] filePathSplit = commandsPAK.FullName.Substring(Application.StartupPath.Length + ("\\" + _pathToCommands + "\\").Length).Split('\\');
 
-                    if (filePathSplit[2] != "COMMANDS.PAK")
+                    if (filePathSplit[0].Substring(0, 1) == "_")
                     {
-                        string pairedLevelCombo = filePathSplit[2].Split('&')[1].Substring(1);
-                        bool didFindMatchingPair = false;
-                        foreach (MissionMapping pairedMapping in _missionMaps)
-                        {
-                            if (pairedMapping.ToStringShortened() == pairedLevelCombo)
-                            {
-                                didFindMatchingPair = true;
-                                break;
-                            }
-                        }
-                        if (!didFindMatchingPair) continue;
+                        string level = filePathSplit[0].Substring(1, filePathSplit[0].Length - 1 - (" GLOBAL").Length);
+                        CopyCommandsToLevel(level, commandsPAK.FullName);
                     }
+                    else
+                    {
+                        if (filePathSplit[1] != mapping.ToString()) continue;
 
-                    CopyCommandsToLevel(filePathSplit[0], commandsPAK.FullName);
+                        if (filePathSplit[2] != "COMMANDS.PAK")
+                        {
+                            string pairedLevelCombo = filePathSplit[2].Split('&')[1].Substring(1);
+                            bool didFindMatchingPair = false;
+                            foreach (MissionMapping pairedMapping in _missionMaps)
+                            {
+                                if (pairedMapping.ToStringShortened() == pairedLevelCombo)
+                                {
+                                    didFindMatchingPair = true;
+                                    break;
+                                }
+                            }
+                            if (!didFindMatchingPair) continue;
+                        }
+
+                        string[] levelInfoSplit = filePathSplit[0].Split('(')[1].Split(')');
+                        string level = levelInfoSplit[0];
+                        if (levelInfoSplit.Length > 2)
+                        {
+                            string difficulty = levelInfoSplit[1].Substring(1, 1); //TO BE IMPLEMENTED LATER
+                        }
+                        mapping.did_find_pak = true;
+                        CopyCommandsToLevel(level, commandsPAK.FullName);
+                    }
                 }
             }
-            commandsPAKs = new DirectoryInfo("COMMANDS/").GetFiles("*.PAK", SearchOption.TopDirectoryOnly);
+            commandsPAKs = new DirectoryInfo(_pathToCommands + "/").GetFiles("*.PAK", SearchOption.TopDirectoryOnly);
             foreach (FileInfo commandsPAK in commandsPAKs)
             {
                 string level = Path.GetFileNameWithoutExtension(commandsPAK.Name);
                 CopyCommandsToLevel(level, commandsPAK.FullName);
             }
+
+            //foreach (MissionMapping mapping in _missionMaps)
+            //{
+            //    if (!mapping.did_find_pak)
+            //        Console.WriteLine("Failed to find PAK for mission " + mapping.mission_start + " -> " + mapping.mission_end + "!!");
+            //}
         }
         private void CopyCommandsToLevel(string levelName, string pathToPak)
         {
             string pathToLevelPak = _pathToAI + @"\DATA\ENV\PRODUCTION\" + levelName + @"\WORLD\COMMANDS.PAK";
             File.Delete(pathToLevelPak);
             File.Copy(pathToPak, pathToLevelPak);
-            Console.WriteLine("COPYING\n" + pathToPak + "\nTO\n" + pathToLevelPak + "\n");
+            //Console.WriteLine("COPYING\n" + pathToPak + "\nTO\n" + pathToLevelPak + "\n");
         }
 
         private void StartGame()
         {
             ProcessStartInfo alienProcess = new ProcessStartInfo();
-            alienProcess.WorkingDirectory = Application.StartupPath;
-            alienProcess.FileName = Application.StartupPath + "/AI.exe";
+            alienProcess.WorkingDirectory = _pathToAI;
+            alienProcess.FileName = _pathToAI + "/AI.exe";
             Process.Start(alienProcess);
         }
 
@@ -198,6 +232,8 @@ namespace AlienRandomiser
         {
             public int mission_start = 1;
             public int mission_end = 1;
+
+            public bool did_find_pak = false;
 
             public string ToString()
             {
