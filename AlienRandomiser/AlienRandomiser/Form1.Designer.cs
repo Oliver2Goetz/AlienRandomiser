@@ -89,6 +89,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox19 = new System.Windows.Forms.PictureBox();
             this.hideOrder = new System.Windows.Forms.CheckBox();
+            this.difficultySelect = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
@@ -745,7 +746,7 @@
             this.hideOrder.AutoSize = true;
             this.hideOrder.Font = new System.Drawing.Font("Isolation", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hideOrder.ForeColor = System.Drawing.SystemColors.Control;
-            this.hideOrder.Location = new System.Drawing.Point(457, 581);
+            this.hideOrder.Location = new System.Drawing.Point(454, 541);
             this.hideOrder.Name = "hideOrder";
             this.hideOrder.Size = new System.Drawing.Size(137, 29);
             this.hideOrder.TabIndex = 111;
@@ -753,12 +754,26 @@
             this.hideOrder.UseVisualStyleBackColor = true;
             this.hideOrder.CheckedChanged += new System.EventHandler(this.hideOrder_CheckedChanged);
             // 
+            // difficultySelect
+            // 
+            this.difficultySelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.difficultySelect.FormattingEnabled = true;
+            this.difficultySelect.Items.AddRange(new object[] {
+            "EASY",
+            "MEDIUM",
+            "HARD"});
+            this.difficultySelect.Location = new System.Drawing.Point(454, 576);
+            this.difficultySelect.Name = "difficultySelect";
+            this.difficultySelect.Size = new System.Drawing.Size(170, 21);
+            this.difficultySelect.TabIndex = 112;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1034, 630);
+            this.Controls.Add(this.difficultySelect);
             this.Controls.Add(this.hideOrder);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox20);
@@ -911,6 +926,7 @@
         private System.Windows.Forms.PictureBox pictureBox20;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox hideOrder;
+        private System.Windows.Forms.ComboBox difficultySelect;
     }
 }
 

@@ -83,6 +83,8 @@ namespace AlienRandomiser
             launchGame.Font = FontManager.GetFont(0, 20.25f);
             hideOrder.Font = FontManager.GetFont(0, 15.75f);
 
+            difficultySelect.SelectedIndex = 0;
+
             GenerateNewDefaultOrder();
         }
 
@@ -197,9 +199,10 @@ namespace AlienRandomiser
 
                         string[] levelInfoSplit = filePathSplit[0].Split('(')[1].Split(')');
                         string level = levelInfoSplit[0];
-                        if (levelInfoSplit.Length > 2)
+                        if (levelInfoSplit.Length > 1 && levelInfoSplit[1] != "")
                         {
-                            string difficulty = levelInfoSplit[1].Substring(1, 1); //TO BE IMPLEMENTED LATER
+                            int difficulty = Convert.ToInt32(levelInfoSplit[1].Substring(1, 1));
+                            if (difficulty != difficultySelect.SelectedIndex + 1) continue;
                         }
                         mapping.did_find_pak = true;
                         CopyCommandsToLevel(level, commandsPAK.FullName);
