@@ -158,7 +158,7 @@ namespace AlienRandomiser
             return (startMission == 8 && endMission == 10) || (startMission == 2 && endMission == 11) ||
                    (startMission == 12 && endMission == 7) || (startMission == 17 && endMission == 2) ||
                    (startMission == 17 && endMission == 11) || (startMission == 4 && endMission == 3) ||
-                   (startMission == 11 && endMission == 10);
+                   (startMission == 11 && endMission == 10) || (startMission == 16 && endMission == 4);
         }
 
         private void CopyNewCommands()
