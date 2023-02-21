@@ -22,6 +22,7 @@ namespace AlienRandomiser
 
         private string _pathToAI = @"G:\SteamLibrary\steamapps\common\Alien Isolation";
         private string _pathToCommands = "Alien Randomizer";
+        private string _multiAlienAppend = "Mutli Alien PAKs";
 
         public Form1()
         {
@@ -82,6 +83,7 @@ namespace AlienRandomiser
             randomiseOrder.Font = FontManager.GetFont(0, 20.25f);
             launchGame.Font = FontManager.GetFont(0, 20.25f);
             hideOrder.Font = FontManager.GetFont(0, 15.75f);
+            multiAlien.Font = FontManager.GetFont(0, 15.75f);
 
             difficultySelect.SelectedIndex = 0;
 
@@ -98,7 +100,8 @@ namespace AlienRandomiser
         {
             try
             {
-                CopyNewCommands();
+                CopyNewCommands(_pathToCommands);
+                if (multiAlien.Checked) CopyNewCommands(_pathToCommands + "/" + _multiAlienAppend);
                 StartGame();
             }
             catch (Exception ex)
@@ -132,8 +135,18 @@ namespace AlienRandomiser
             for (int i = 1; i < 18; i++)
             {
                 int startMission = nextMission;
+                int x = 0;
                 while (nextMission == 1 || nextMission == startMission || usedMissions.Contains(nextMission) || ValidateInvalidMissions(startMission, nextMission))
+                {
                     nextMission = _random.Next(18) + 1;
+
+                    if (x > 10000)
+                    {
+                        GenerateNewRandomOrder();
+                        return;
+                    }
+                    x++;
+                }
                 usedMissions.Add(nextMission);
 
                 MissionMapping missionMapping = new MissionMapping();
@@ -161,16 +174,16 @@ namespace AlienRandomiser
                    (startMission == 11 && endMission == 10) || (startMission == 16 && endMission == 4);
         }
 
-        private void CopyNewCommands()
+        private void CopyNewCommands(string pathToCommands)
         {
             if (_missionMaps.Count == 0) return;
 
-            FileInfo[] commandsPAKs = new DirectoryInfo(_pathToCommands + "/").GetFiles("COMMANDS.PAK", SearchOption.AllDirectories);
+            FileInfo[] commandsPAKs = new DirectoryInfo(pathToCommands + "/").GetFiles("COMMANDS.PAK", SearchOption.AllDirectories);
             foreach (MissionMapping mapping in _missionMaps)
             {
                 foreach (FileInfo commandsPAK in commandsPAKs)
                 {
-                    string[] filePathSplit = commandsPAK.FullName.Substring(Application.StartupPath.Length + ("\\" + _pathToCommands + "\\").Length).Split('\\');
+                    string[] filePathSplit = commandsPAK.FullName.Substring(Application.StartupPath.Length + ("\\" + pathToCommands + "\\").Length).Split('\\');
 
                     if (filePathSplit[0].Substring(0, 1) == "_")
                     {
@@ -208,12 +221,6 @@ namespace AlienRandomiser
                         CopyCommandsToLevel(level, commandsPAK.FullName);
                     }
                 }
-            }
-            commandsPAKs = new DirectoryInfo(_pathToCommands + "/").GetFiles("*.PAK", SearchOption.TopDirectoryOnly);
-            foreach (FileInfo commandsPAK in commandsPAKs)
-            {
-                string level = Path.GetFileNameWithoutExtension(commandsPAK.Name);
-                CopyCommandsToLevel(level, commandsPAK.FullName);
             }
 
             foreach (MissionMapping mapping in _missionMaps)
