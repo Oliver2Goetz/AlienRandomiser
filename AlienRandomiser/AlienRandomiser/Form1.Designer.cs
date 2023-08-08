@@ -760,6 +760,7 @@
             this.difficultySelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.difficultySelect.FormattingEnabled = true;
             this.difficultySelect.Items.AddRange(new object[] {
+            "NOVICE",
             "EASY",
             "MEDIUM",
             "HARD"});

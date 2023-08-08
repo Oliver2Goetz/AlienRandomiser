@@ -215,7 +215,7 @@ namespace AlienRandomiser
                         if (levelInfoSplit.Length > 1 && levelInfoSplit[1] != "")
                         {
                             int difficulty = Convert.ToInt32(levelInfoSplit[1].Substring(1, 1));
-                            if (difficulty != difficultySelect.SelectedIndex + 1) continue;
+                            if (difficulty != difficultySelect.SelectedIndex) continue;
                         }
                         mapping.did_find_pak = true;
                         CopyCommandsToLevel(level, commandsPAK.FullName);
