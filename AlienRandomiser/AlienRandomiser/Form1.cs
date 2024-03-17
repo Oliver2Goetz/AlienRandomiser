@@ -34,10 +34,10 @@ namespace AlienRandomiser
             _pathToAI = Application.StartupPath;
             if (!Directory.Exists(_pathToCommands) || !Directory.Exists("DATA"))
             {
-                MessageBox.Show("Please open the mission randomiser in your Alien: Isolation directory.", "Incorrectly launched!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Application.Exit();
-                Environment.Exit(0);
-                return;
+                //MessageBox.Show("Please open the mission randomiser in your Alien: Isolation directory.", "Incorrectly launched!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //Application.Exit();
+                //Environment.Exit(0);
+                //return;
             }
 #endif
 
@@ -96,15 +96,22 @@ namespace AlienRandomiser
             ReSyncUI();
         }
 
+        private void applyPreSelectedOrder_Click(object sender, EventArgs e)
+        {
+            ApplyKnownOrder();
+            ReSyncUI();
+        }
+
         private void launchGame_Click(object sender, EventArgs e)
         {
+            return;
+            // TODO - DONT DO THIS - this is only to prevent me from overwriting my modded files
             try
             {
                 CopyNewCommands(_pathToCommands);
                 if (multiAlien.Checked) CopyNewCommands(_pathToCommands + "/" + _multiAlienAppend);
                 StartGame();
-            }
-            catch (Exception ex)
+            } catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
                 MessageBox.Show("Failed to set & start game!\nIs Alien: Isolation already open?", "Failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -154,6 +161,44 @@ namespace AlienRandomiser
                 missionMapping.mission_end = nextMission;
                 _missionMaps.Add(missionMapping);
             }
+            MissionMapping finalMapping = new MissionMapping();
+            finalMapping.mission_start = nextMission;
+            finalMapping.mission_end = 19;
+            _missionMaps.Add(finalMapping);
+        }
+
+        private void ApplyKnownOrder() {
+            _missionMaps.Clear();
+            List<int> usedMissions = new List<int>();
+
+            string[] missionNumbers = textboxManualInput.Text.Split('-');
+            if (19 != missionNumbers.Length || 1 != Int32.Parse(missionNumbers[0]) || 19 != Int32.Parse(missionNumbers[18])) {
+                // first simple checks
+                MessageBox.Show("The order has to consist of all the 19 missions. 1 needs to be the first and 19 the last mission.");
+                return;
+            }
+
+            int startMission = 1;
+            int nextMission = 0;
+            for (int i = 1; i < 18; i++) {
+                nextMission = Int32.Parse(missionNumbers[i]);
+                if (nextMission == startMission || usedMissions.Contains(nextMission) || ValidateInvalidMissions(startMission, nextMission)) {
+                    // validation
+                    MessageBox.Show("This order is invalid: " + startMission + " -> " + nextMission);
+                    return;
+                }
+
+                nextMission = Int32.Parse(missionNumbers[i]);
+                usedMissions.Add(nextMission);
+
+                MissionMapping missionMapping = new MissionMapping();
+                missionMapping.mission_start = startMission;
+                missionMapping.mission_end = nextMission;
+                _missionMaps.Add(missionMapping);
+
+                startMission = nextMission; //set the current mission to last mission
+            }
+
             MissionMapping finalMapping = new MissionMapping();
             finalMapping.mission_start = nextMission;
             finalMapping.mission_end = 19;

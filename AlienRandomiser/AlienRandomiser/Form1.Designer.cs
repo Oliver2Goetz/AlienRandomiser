@@ -91,6 +91,8 @@
             this.hideOrder = new System.Windows.Forms.CheckBox();
             this.difficultySelect = new System.Windows.Forms.ComboBox();
             this.multiAlien = new System.Windows.Forms.CheckBox();
+            this.textboxManualInput = new System.Windows.Forms.TextBox();
+            this.applyPreSelectedOrder = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
@@ -120,7 +122,7 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(42, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 48);
+            this.label1.Size = new System.Drawing.Size(44, 45);
             this.label1.TabIndex = 0;
             this.label1.Text = "1";
             // 
@@ -131,7 +133,7 @@
             this.order_1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.order_1.Location = new System.Drawing.Point(159, 20);
             this.order_1.Name = "order_1";
-            this.order_1.Size = new System.Drawing.Size(45, 48);
+            this.order_1.Size = new System.Drawing.Size(44, 45);
             this.order_1.TabIndex = 55;
             this.order_1.Text = "2";
             // 
@@ -142,7 +144,7 @@
             this.order_2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.order_2.Location = new System.Drawing.Point(159, 75);
             this.order_2.Name = "order_2";
-            this.order_2.Size = new System.Drawing.Size(44, 48);
+            this.order_2.Size = new System.Drawing.Size(44, 45);
             this.order_2.TabIndex = 58;
             this.order_2.Text = "3";
             // 
@@ -153,7 +155,7 @@
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label4.Location = new System.Drawing.Point(37, 75);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 48);
+            this.label4.Size = new System.Drawing.Size(44, 45);
             this.label4.TabIndex = 56;
             this.label4.Text = "2";
             // 
@@ -164,7 +166,7 @@
             this.order_4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.order_4.Location = new System.Drawing.Point(159, 185);
             this.order_4.Name = "order_4";
-            this.order_4.Size = new System.Drawing.Size(44, 48);
+            this.order_4.Size = new System.Drawing.Size(44, 45);
             this.order_4.TabIndex = 64;
             this.order_4.Text = "5";
             // 
@@ -175,7 +177,7 @@
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label6.Location = new System.Drawing.Point(37, 185);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 48);
+            this.label6.Size = new System.Drawing.Size(44, 45);
             this.label6.TabIndex = 62;
             this.label6.Text = "4";
             // 
@@ -186,7 +188,7 @@
             this.order_3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.order_3.Location = new System.Drawing.Point(159, 130);
             this.order_3.Name = "order_3";
-            this.order_3.Size = new System.Drawing.Size(44, 48);
+            this.order_3.Size = new System.Drawing.Size(44, 45);
             this.order_3.TabIndex = 61;
             this.order_3.Text = "4";
             // 
@@ -197,7 +199,7 @@
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label8.Location = new System.Drawing.Point(37, 130);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(44, 48);
+            this.label8.Size = new System.Drawing.Size(44, 45);
             this.label8.TabIndex = 59;
             this.label8.Text = "3";
             // 
@@ -208,7 +210,7 @@
             this.order_8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.order_8.Location = new System.Drawing.Point(159, 405);
             this.order_8.Name = "order_8";
-            this.order_8.Size = new System.Drawing.Size(44, 48);
+            this.order_8.Size = new System.Drawing.Size(44, 45);
             this.order_8.TabIndex = 76;
             this.order_8.Text = "9";
             // 
@@ -219,7 +221,7 @@
             this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label10.Location = new System.Drawing.Point(37, 405);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(44, 48);
+            this.label10.Size = new System.Drawing.Size(44, 45);
             this.label10.TabIndex = 74;
             this.label10.Text = "8";
             // 
@@ -230,7 +232,7 @@
             this.order_7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.order_7.Location = new System.Drawing.Point(159, 350);
             this.order_7.Name = "order_7";
-            this.order_7.Size = new System.Drawing.Size(44, 48);
+            this.order_7.Size = new System.Drawing.Size(44, 45);
             this.order_7.TabIndex = 73;
             this.order_7.Text = "8";
             // 
@@ -241,7 +243,7 @@
             this.label12.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label12.Location = new System.Drawing.Point(37, 350);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(44, 48);
+            this.label12.Size = new System.Drawing.Size(44, 45);
             this.label12.TabIndex = 71;
             this.label12.Text = "7";
             // 
@@ -252,7 +254,7 @@
             this.order_6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.order_6.Location = new System.Drawing.Point(159, 295);
             this.order_6.Name = "order_6";
-            this.order_6.Size = new System.Drawing.Size(44, 48);
+            this.order_6.Size = new System.Drawing.Size(44, 45);
             this.order_6.TabIndex = 70;
             this.order_6.Text = "7";
             // 
@@ -263,7 +265,7 @@
             this.label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label14.Location = new System.Drawing.Point(37, 295);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(44, 48);
+            this.label14.Size = new System.Drawing.Size(44, 45);
             this.label14.TabIndex = 68;
             this.label14.Text = "6";
             // 
@@ -274,7 +276,7 @@
             this.order_5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.order_5.Location = new System.Drawing.Point(159, 240);
             this.order_5.Name = "order_5";
-            this.order_5.Size = new System.Drawing.Size(44, 48);
+            this.order_5.Size = new System.Drawing.Size(44, 45);
             this.order_5.TabIndex = 67;
             this.order_5.Text = "6";
             // 
@@ -285,7 +287,7 @@
             this.label16.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label16.Location = new System.Drawing.Point(37, 240);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(44, 48);
+            this.label16.Size = new System.Drawing.Size(44, 45);
             this.label16.TabIndex = 65;
             this.label16.Text = "5";
             // 
@@ -296,7 +298,7 @@
             this.order_9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.order_9.Location = new System.Drawing.Point(159, 460);
             this.order_9.Name = "order_9";
-            this.order_9.Size = new System.Drawing.Size(61, 48);
+            this.order_9.Size = new System.Drawing.Size(68, 45);
             this.order_9.TabIndex = 79;
             this.order_9.Text = "10";
             // 
@@ -307,7 +309,7 @@
             this.label18.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label18.Location = new System.Drawing.Point(37, 460);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(44, 48);
+            this.label18.Size = new System.Drawing.Size(44, 45);
             this.label18.TabIndex = 77;
             this.label18.Text = "9";
             // 
@@ -318,7 +320,7 @@
             this.order_18.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.order_18.Location = new System.Drawing.Point(379, 459);
             this.order_18.Name = "order_18";
-            this.order_18.Size = new System.Drawing.Size(61, 48);
+            this.order_18.Size = new System.Drawing.Size(68, 45);
             this.order_18.TabIndex = 106;
             this.order_18.Text = "19";
             // 
@@ -329,7 +331,7 @@
             this.label20.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label20.Location = new System.Drawing.Point(243, 459);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(61, 48);
+            this.label20.Size = new System.Drawing.Size(68, 45);
             this.label20.TabIndex = 104;
             this.label20.Text = "18";
             // 
@@ -340,7 +342,7 @@
             this.order_17.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.order_17.Location = new System.Drawing.Point(379, 404);
             this.order_17.Name = "order_17";
-            this.order_17.Size = new System.Drawing.Size(61, 48);
+            this.order_17.Size = new System.Drawing.Size(68, 45);
             this.order_17.TabIndex = 103;
             this.order_17.Text = "18";
             // 
@@ -351,7 +353,7 @@
             this.label22.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label22.Location = new System.Drawing.Point(243, 404);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(61, 48);
+            this.label22.Size = new System.Drawing.Size(68, 45);
             this.label22.TabIndex = 101;
             this.label22.Text = "17";
             // 
@@ -362,7 +364,7 @@
             this.order_16.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.order_16.Location = new System.Drawing.Point(379, 349);
             this.order_16.Name = "order_16";
-            this.order_16.Size = new System.Drawing.Size(61, 48);
+            this.order_16.Size = new System.Drawing.Size(68, 45);
             this.order_16.TabIndex = 100;
             this.order_16.Text = "17";
             // 
@@ -373,7 +375,7 @@
             this.label24.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label24.Location = new System.Drawing.Point(243, 349);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(61, 48);
+            this.label24.Size = new System.Drawing.Size(68, 45);
             this.label24.TabIndex = 98;
             this.label24.Text = "16";
             // 
@@ -384,7 +386,7 @@
             this.order_15.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.order_15.Location = new System.Drawing.Point(379, 294);
             this.order_15.Name = "order_15";
-            this.order_15.Size = new System.Drawing.Size(61, 48);
+            this.order_15.Size = new System.Drawing.Size(68, 45);
             this.order_15.TabIndex = 97;
             this.order_15.Text = "16";
             // 
@@ -395,7 +397,7 @@
             this.label26.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label26.Location = new System.Drawing.Point(243, 294);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(61, 48);
+            this.label26.Size = new System.Drawing.Size(68, 45);
             this.label26.TabIndex = 95;
             this.label26.Text = "15";
             // 
@@ -406,7 +408,7 @@
             this.order_14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.order_14.Location = new System.Drawing.Point(379, 239);
             this.order_14.Name = "order_14";
-            this.order_14.Size = new System.Drawing.Size(61, 48);
+            this.order_14.Size = new System.Drawing.Size(68, 45);
             this.order_14.TabIndex = 94;
             this.order_14.Text = "15";
             // 
@@ -417,7 +419,7 @@
             this.label28.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label28.Location = new System.Drawing.Point(243, 239);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(61, 48);
+            this.label28.Size = new System.Drawing.Size(68, 45);
             this.label28.TabIndex = 92;
             this.label28.Text = "14";
             // 
@@ -428,7 +430,7 @@
             this.order_13.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.order_13.Location = new System.Drawing.Point(379, 184);
             this.order_13.Name = "order_13";
-            this.order_13.Size = new System.Drawing.Size(61, 48);
+            this.order_13.Size = new System.Drawing.Size(68, 45);
             this.order_13.TabIndex = 91;
             this.order_13.Text = "14";
             // 
@@ -439,7 +441,7 @@
             this.label30.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label30.Location = new System.Drawing.Point(243, 184);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(61, 48);
+            this.label30.Size = new System.Drawing.Size(68, 45);
             this.label30.TabIndex = 89;
             this.label30.Text = "13";
             // 
@@ -450,7 +452,7 @@
             this.order_12.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.order_12.Location = new System.Drawing.Point(379, 129);
             this.order_12.Name = "order_12";
-            this.order_12.Size = new System.Drawing.Size(61, 48);
+            this.order_12.Size = new System.Drawing.Size(68, 45);
             this.order_12.TabIndex = 88;
             this.order_12.Text = "13";
             // 
@@ -461,7 +463,7 @@
             this.label32.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label32.Location = new System.Drawing.Point(243, 129);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(62, 48);
+            this.label32.Size = new System.Drawing.Size(68, 45);
             this.label32.TabIndex = 86;
             this.label32.Text = "12";
             // 
@@ -472,7 +474,7 @@
             this.order_11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.order_11.Location = new System.Drawing.Point(379, 74);
             this.order_11.Name = "order_11";
-            this.order_11.Size = new System.Drawing.Size(62, 48);
+            this.order_11.Size = new System.Drawing.Size(68, 45);
             this.order_11.TabIndex = 85;
             this.order_11.Text = "12";
             // 
@@ -483,7 +485,7 @@
             this.label34.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label34.Location = new System.Drawing.Point(248, 74);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(54, 48);
+            this.label34.Size = new System.Drawing.Size(68, 45);
             this.label34.TabIndex = 83;
             this.label34.Text = "11";
             // 
@@ -494,7 +496,7 @@
             this.order_10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.order_10.Location = new System.Drawing.Point(379, 19);
             this.order_10.Name = "order_10";
-            this.order_10.Size = new System.Drawing.Size(54, 48);
+            this.order_10.Size = new System.Drawing.Size(68, 45);
             this.order_10.TabIndex = 82;
             this.order_10.Text = "11";
             // 
@@ -505,13 +507,13 @@
             this.label36.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label36.Location = new System.Drawing.Point(243, 19);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(61, 48);
+            this.label36.Size = new System.Drawing.Size(68, 45);
             this.label36.TabIndex = 80;
             this.label36.Text = "10";
             // 
             // randomiseOrder
             // 
-            this.randomiseOrder.Font = new System.Drawing.Font("Isolation", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.randomiseOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.randomiseOrder.Location = new System.Drawing.Point(45, 529);
             this.randomiseOrder.Name = "randomiseOrder";
             this.randomiseOrder.Size = new System.Drawing.Size(178, 81);
@@ -522,7 +524,7 @@
             // 
             // launchGame
             // 
-            this.launchGame.Font = new System.Drawing.Font("Isolation", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.launchGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.launchGame.Location = new System.Drawing.Point(251, 529);
             this.launchGame.Name = "launchGame";
             this.launchGame.Size = new System.Drawing.Size(178, 81);
@@ -534,11 +536,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Nostromo Cond", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
             this.label2.Location = new System.Drawing.Point(608, 104);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(287, 35);
+            this.label2.Size = new System.Drawing.Size(306, 37);
             this.label2.TabIndex = 110;
             this.label2.Text = "Mission Randomiser";
             // 
@@ -736,7 +738,7 @@
             // 
             this.pictureBox19.BackgroundImage = global::AlienRandomiser.Properties.Resources.ripley;
             this.pictureBox19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox19.Location = new System.Drawing.Point(300, 70);
+            this.pictureBox19.Location = new System.Drawing.Point(300, 47);
             this.pictureBox19.Name = "pictureBox19";
             this.pictureBox19.Size = new System.Drawing.Size(855, 591);
             this.pictureBox19.TabIndex = 54;
@@ -745,11 +747,11 @@
             // hideOrder
             // 
             this.hideOrder.AutoSize = true;
-            this.hideOrder.Font = new System.Drawing.Font("Isolation", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hideOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hideOrder.ForeColor = System.Drawing.SystemColors.Control;
             this.hideOrder.Location = new System.Drawing.Point(454, 552);
             this.hideOrder.Name = "hideOrder";
-            this.hideOrder.Size = new System.Drawing.Size(137, 29);
+            this.hideOrder.Size = new System.Drawing.Size(135, 29);
             this.hideOrder.TabIndex = 111;
             this.hideOrder.Text = "Hide Order";
             this.hideOrder.UseVisualStyleBackColor = true;
@@ -772,14 +774,33 @@
             // multiAlien
             // 
             this.multiAlien.AutoSize = true;
-            this.multiAlien.Font = new System.Drawing.Font("Isolation", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.multiAlien.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.multiAlien.ForeColor = System.Drawing.SystemColors.Control;
             this.multiAlien.Location = new System.Drawing.Point(454, 523);
             this.multiAlien.Name = "multiAlien";
-            this.multiAlien.Size = new System.Drawing.Size(129, 29);
+            this.multiAlien.Size = new System.Drawing.Size(132, 29);
             this.multiAlien.TabIndex = 113;
             this.multiAlien.Text = "Multi-Alien";
             this.multiAlien.UseVisualStyleBackColor = true;
+            // 
+            // textboxManualInput
+            // 
+            this.textboxManualInput.Location = new System.Drawing.Point(638, 588);
+            this.textboxManualInput.Name = "textboxManualInput";
+            this.textboxManualInput.Size = new System.Drawing.Size(270, 20);
+            this.textboxManualInput.TabIndex = 114;
+            this.textboxManualInput.Text = "Or enter your own mission order (dash separated)";
+            // 
+            // applyPreSelectedOrder
+            // 
+            this.applyPreSelectedOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.applyPreSelectedOrder.Location = new System.Drawing.Point(914, 529);
+            this.applyPreSelectedOrder.Name = "applyPreSelectedOrder";
+            this.applyPreSelectedOrder.Size = new System.Drawing.Size(102, 81);
+            this.applyPreSelectedOrder.TabIndex = 115;
+            this.applyPreSelectedOrder.Text = "Apply Order";
+            this.applyPreSelectedOrder.UseVisualStyleBackColor = true;
+            this.applyPreSelectedOrder.Click += new System.EventHandler(this.applyPreSelectedOrder_Click);
             // 
             // Form1
             // 
@@ -787,6 +808,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1034, 630);
+            this.Controls.Add(this.applyPreSelectedOrder);
+            this.Controls.Add(this.textboxManualInput);
             this.Controls.Add(this.multiAlien);
             this.Controls.Add(this.difficultySelect);
             this.Controls.Add(this.hideOrder);
@@ -943,6 +966,8 @@
         private System.Windows.Forms.CheckBox hideOrder;
         private System.Windows.Forms.ComboBox difficultySelect;
         private System.Windows.Forms.CheckBox multiAlien;
+        private System.Windows.Forms.TextBox textboxManualInput;
+        private System.Windows.Forms.Button applyPreSelectedOrder;
     }
 }
 
